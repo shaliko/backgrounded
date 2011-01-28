@@ -6,7 +6,7 @@ module Backgrounded
     # see http://github.com/tobi/delayed_job/tree/master
     class DelayedJobHandler
       def request(object, method, *args)
-        object.send_later(method.to_sym, *args)
+        object.delay.send(method.to_sym, *args)
       end
     end
   end
